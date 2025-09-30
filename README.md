@@ -48,15 +48,27 @@ npm run build
 DATABASE_URL=postgresql://usuario:senha@localhost:5432/nome_do_banco
 JWT_SECRET=sua_chave_secreta
 
-##  Execute as migrations
+### Executar migrations
+- Ambiente de desenvolvimento:
+  ```bash
+  npx prisma migrate dev
 
-npm run dev
-
+- Ambiente de produção:
+```bash
+npx prisma migrate deploy
+```
 ## Testes
 
 Os testes foram escritos com **Jest**.  
 Para rodar:
 npm test
+
+## 📖 Documentação
+A documentação da API está disponível em:
+https://skyrim-api-6aad.onrender.com/api-docs
+
+Exemplo de endpoint:
+POST https://skyrim-api-6aad.onrender.com/volunteers
 
 ##  Aprendizados
 
