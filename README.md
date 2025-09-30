@@ -67,9 +67,6 @@ npm test
 A documentação da API está disponível em:
 https://skyrim-api-6aad.onrender.com/api-docs
 
-Exemplo de endpoint:
-POST https://skyrim-api-6aad.onrender.com/volunteers
-
 ##  Aprendizados
 
 - Como criar e conectar um banco PostgreSQL no Render  
@@ -84,6 +81,9 @@ POST https://skyrim-api-6aad.onrender.com/volunteers
 A API está publicada no [Render](https://render.com).
 
 **URL base:** https://skyrim-api-6aad.onrender.com
+
+Exemplo de endpoint:
+POST https://skyrim-api-6aad.onrender.com/api/volunteers
 
 ## Observações
 
