@@ -1,0 +1,66 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Skyrim Volunteer API",
+    "version": "1.0.0",
+    "description": "API para gerenciar voluntários e facções em Skyrim"
+  },
+  "paths": {
+    "/volunteers": {
+      "post": {
+        "summary": "Cria um novo voluntário",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Volunteer"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Voluntário criado com sucesso"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Volunteer": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "password": { "type": "string" },
+          "race": {
+            "type": "string",
+            "enum": ["NORD", "IMPERIAL", "DUNMER", "ARGONIAN", "KHAJIIT", "BRETON", "ORC", "REDGUARD", "ALTMER", "BOSMER"]
+          },
+          "gender": {
+            "type": "string",
+            "enum": ["MALE", "FEMALE", "OTHER"]
+          },
+          "moralAlignment": {
+            "type": "string",
+            "enum": [
+              "EMPIRE_IS_WEAK", "SKYRIM_FOR_NORDS", "TALOS_BAN_UNACCEPTABLE", "EMPIRE_RESTORES_ORDER",
+              "UNITE_AGAINST_ALTMER", "ULFRIC_KILLED_HIGH_KING", "NO_SIDE_IS_RIGHT",
+              "PEACE_AGREEMENT_PREFERRED", "NO_OPINION"
+            ]
+          },
+          "motivation": {
+            "type": "string",
+            "enum": [
+              "END_EMPIRE", "END_STORMCLOAKS", "PEACE_IN_SKYRIM", "SKYRIM_FOR_NORDS_ONLY",
+              "NORDS_IGNORE_MY_PEOPLE", "ULFRIC_IS_KILLER", "ULFRIC_IS_HIGH_KING", "MOTIVES_DONT_MATTER"
+            ]
+          },
+          "factionId": { "type": "integer" }
+        },
+        "required": ["name", "password", "race", "gender", "moralAlignment", "motivation"]
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+import z from "zod";
+
+export const CreateVolunteerRequestSchema = z.object({
+    name: z.string(),
+    password: z.string(),
+    race: z.enum(["NORD",
+        "IMPERIAL",
+        "DUNMER",
+        "ARGONIAN",
+        "KHAJIIT",
+        "BRETON",
+        "ORC",
+        "REDGUARD",
+        "ALTMER",
+        "BOSMER"
+    ]),
+    gender: z.enum(["MALE",
+        "FEMALE",
+        "OTHER"]),
+    moralAlignment: z.enum(["EMPIRE_IS_WEAK",
+        "SKYRIM_FOR_NORDS",
+        "TALOS_BAN_UNACCEPTABLE",
+        "EMPIRE_RESTORES_ORDER",
+        "UNITE_AGAINST_ALTMER",
+        "ULFRIC_KILLED_HIGH_KING",
+        "NO_SIDE_IS_RIGHT",
+        "PEACE_AGREEMENT_PREFERRED",
+        "NO_OPINION"]),
+    motivation: z.enum(["END_EMPIRE",
+        "END_STORMCLOAKS",
+        "PEACE_IN_SKYRIM",
+        "SKYRIM_FOR_NORDS_ONLY",
+        "NORDS_IGNORE_MY_PEOPLE",
+        "ULFRIC_IS_KILLER",
+        "ULFRIC_IS_HIGH_KING",
+        "MOTIVES_DONT_MATTER"])
+})

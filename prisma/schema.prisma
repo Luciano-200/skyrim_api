@@ -1,0 +1,86 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Volunteer {
+  id             Int            @id @default(autoincrement())
+  name           String
+  password       String
+  race           Race
+  gender         Gender
+  moralAlignment MoralAlignment
+  approvalStatus ApprovalStatus @default(PENDING)
+  motivation     Motivation
+  factionId      Int?
+  faction        Faction?       @relation(fields: [factionId], references: [id])
+}
+
+model Faction {
+  id      Int         @id @default(autoincrement())
+  name    FactionName
+  members Volunteer[]
+}
+
+enum FactionName {
+  STORMCLOACK
+  IMPERIAL
+}
+
+enum Race {
+  NORD
+  IMPERIAL
+  DUNMER
+  ARGONIAN
+  KHAJIIT
+  BRETON
+  ORC
+  REDGUARD
+  ALTMER
+  BOSMER
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  OTHER
+}
+
+enum ApprovalStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum MoralAlignment {
+  EMPIRE_IS_WEAK
+  SKYRIM_FOR_NORDS
+  TALOS_BAN_UNACCEPTABLE
+  EMPIRE_RESTORES_ORDER
+  UNITE_AGAINST_ALTMER
+  ULFRIC_KILLED_HIGH_KING
+  NO_SIDE_IS_RIGHT
+  PEACE_AGREEMENT_PREFERRED
+  NO_OPINION
+}
+
+enum Motivation {
+  END_EMPIRE
+  END_STORMCLOAKS
+  PEACE_IN_SKYRIM
+  SKYRIM_FOR_NORDS_ONLY
+  NORDS_IGNORE_MY_PEOPLE
+  ULFRIC_IS_KILLER
+  ULFRIC_IS_HIGH_KING
+  MOTIVES_DONT_MATTER
+}
