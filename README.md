@@ -76,15 +76,6 @@ https://skyrim-api-6aad.onrender.com/api-docs
 - Como rodar testes automatizados com Jest  
 - Como lidar com erros de deploy e cache no Render
 
-## Deploy
-
-A API está publicada no [Render](https://render.com).
-
-**URL base:** https://skyrim-api-6aad.onrender.com
-
-Exemplo de endpoint:
-POST https://skyrim-api-6aad.onrender.com/api/volunteers
-
 ## Observações
 
 Este projeto é simples propositalmente para poder focar em utilizar novas funcionalidades.
