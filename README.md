@@ -67,6 +67,8 @@ npm test
 A documentação da API está disponível em:
 https://skyrim-api-6aad.onrender.com/api-docs
 
+Nota: O projeto utiliza hospedagem gratuita. Se o link demorar a carregar, por favor, aguarde cerca de 1 minuto para o servidor despertar.
+
 ##  Aprendizados
 
 - Como criar e conectar um banco PostgreSQL no Render  
